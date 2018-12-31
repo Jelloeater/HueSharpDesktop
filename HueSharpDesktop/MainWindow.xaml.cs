@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace HueSharpDesktop
 {
     /// <summary>
@@ -26,7 +27,7 @@ namespace HueSharpDesktop
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            //var LightList = libs.Lights.GetLightList;
+            var LightList = libs.Lights.GetLightList;
             for (int i = 0; i < 5; i++)
             {
 
