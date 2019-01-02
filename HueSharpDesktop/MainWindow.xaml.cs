@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using libs;
 
 
 namespace HueSharpDesktop
@@ -20,26 +11,61 @@ namespace HueSharpDesktop
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            this.Add_Buttons();
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            var LightList = libs.Lights.GetLightList;
-            for (int i = 0; i < 5; i++)
+            this.Remove_Buttons();
+            this.Add_Buttons();
+        }
+
+        private void Add_Buttons()
+        {
+            var LightList = Lights.GetLightList();
+
+            foreach (var i in LightList)
             {
+                var lightLabel = new Label();
+                lightLabel.Content = i.Name;
 
+                var turnOnLight = new Button();
+                turnOnLight.Content = "On";
+                turnOnLight.Click += (turnOnLight_Action);
 
-                System.Windows.Controls.Button newBtn = new Button();
+                var turnOffLight = new Button();
+                turnOffLight.Content = "Off";
+                turnOffLight.Click += (turnOffLight_Action);
 
-                newBtn.Content = i.ToString();
-                newBtn.Name = "Button" + i.ToString();
-
-                mainSubPannel.Children.Add(newBtn);
+                mainSubPannel.Children.Add(lightLabel);
+                mainSubPannel.Children.Add(turnOnLight);
+                mainSubPannel.Children.Add(turnOffLight);
 
             }
+        }
+
+        private void Remove_Buttons()
+        {
+            foreach (System.Windows.UIElement item in mainSubPannel.Children)
+            {
+                Console.WriteLine("");
+                //mainSubPannel.Children.Remove(item);
+            }
+            
+        }
+        private void turnOffLight_Action(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void turnOnLight_Action(object sender, EventArgs e)
+        {
+            MessageBox.Show("My message here");
+            
         }
     }
 }

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HueSharpDesktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
         <Label x:Name="AppLabel" Content="HueSharp Desktop" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <Button x:Name="refresh" Click="Refresh_Click" Content="Refresh" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" IsCancel="True"/>
-        <StackPanel x:Name="mainSubPannel" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Height="380" Width="772"/>
+        <Button x:Name="refresh" Click="Refresh_Click" Content="Refresh" HorizontalAlignment="Left" Margin="0,10,10,475" IsCancel="True" VerticalAlignment="Top" RenderTransformOrigin="1.591,0.4"/>
+        <StackPanel x:Name="mainSubPannel" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
